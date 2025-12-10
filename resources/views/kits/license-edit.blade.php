@@ -1,8 +1,25 @@
-@extends('layouts/edit-form', [
+{{-- Syntax error in code snippet --}}
+
+{{-- @extends('layouts/edit-form', [
     'createText' => {{ trans('admin/kits/general.append_license') }},
     'updateText' => {{ trans('admin/kits/general.update_appended_license') }},
     'formAction' => (isset($item->id)) ? route('kits.licenses.update', ['kit_id' => $kit->id, 'license_id' => $item->license_id]) : route('kits.licenses.store', ['kit_id' => $kit->id]),
+]) --}}
+
+{{-- updated code --}}
+@extends('layouts/edit-form', [
+    'createText' => trans('admin/kits/general.append_license'),
+    'updateText' => trans('admin/kits/general.update_appended_license'),
+    'formAction' => isset($item->id)
+        ? route('kits.licenses.update', [
+            'kit_id' => $kit->id,
+            'license_id' => $item->license_id,
+        ])
+        : route('kits.licenses.store', [
+            'kit_id' => $kit->id,
+        ]),
 ])
+
 
 {{-- Page content --}}
 @section('inputFields')

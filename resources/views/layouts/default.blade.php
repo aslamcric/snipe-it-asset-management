@@ -1528,64 +1528,102 @@
                                         </li>
                                     @endcan
 
-                                    @can('view', \App\Models\AssetModel::class)
+                                    {{-- Syntax error in code snippet --}}
+                                    {{-- @can('view', \App\Models\AssetModel::class)
                                         <li {{!! (request()->is('models') ? ' class="active"' : '') !!}}>
+                                            <a href="{{ route('models.index') }}">
+                                                {{ trans('general.asset_models') }}
+                                            </a>
+                                        </li>
+                                    @endcan --}}
+
+                                    {{-- updated code --}}
+                                    @can('view', \App\Models\AssetModel::class)
+                                        <li {!! request()->is('models') ? 'class="active"' : '' !!}>
                                             <a href="{{ route('models.index') }}">
                                                 {{ trans('general.asset_models') }}
                                             </a>
                                         </li>
                                     @endcan
 
-                                    @can('view', \App\Models\Category::class)
+
+                                    {{-- Syntax error in code snippet --}}
+                                    {{-- @can('view', \App\Models\Category::class)
                                         <li {{!! (request()->is('categories') ? ' class="active"' : '') !!}}>
+                                            <a href="{{ route('categories.index') }}">
+                                                {{ trans('general.categories') }}
+                                            </a>
+                                        </li>
+                                    @endcan --}}
+
+                                    {{-- Updated code --}}
+                                    @can('view', \App\Models\Category::class)
+                                        <li {!! request()->is('categories') ? 'class="active"' : '' !!}>
                                             <a href="{{ route('categories.index') }}">
                                                 {{ trans('general.categories') }}
                                             </a>
                                         </li>
                                     @endcan
 
-                                    @can('view', \App\Models\Manufacturer::class)
+
+                                    {{-- Syntax error in code snippet --}}
+                                    {{-- @can('view', \App\Models\Manufacturer::class)
                                         <li {{!! (request()->is('manufacturers') ? ' class="active"' : '') !!}}>
+                                            <a href="{{ route('manufacturers.index') }}">
+                                                {{ trans('general.manufacturers') }}
+                                            </a>
+                                        </li>
+                                    @endcan --}}
+
+                                    {{-- updated code --}}
+                                    @can('view', \App\Models\Manufacturer::class)
+                                        <li {!! request()->is('manufacturers') ? 'class="active"' : '' !!}>
                                             <a href="{{ route('manufacturers.index') }}">
                                                 {{ trans('general.manufacturers') }}
                                             </a>
                                         </li>
                                     @endcan
 
+
+                                    {{-- Updated code --}}
                                     @can('view', \App\Models\Supplier::class)
-                                        <li {{!! (request()->is('suppliers') ? ' class="active"' : '') !!}}>
+                                        <li {!! (request()->is('suppliers') ? 'class="active"' : '') !!}>
                                             <a href="{{ route('suppliers.index') }}">
                                                 {{ trans('general.suppliers') }}
                                             </a>
                                         </li>
                                     @endcan
 
+                                    {{-- Updated code --}}
                                     @can('view', \App\Models\Department::class)
-                                        <li {{!! (request()->is('departments') ? ' class="active"' : '') !!}}>
+                                        <li {!! (request()->is('departments') ? 'class="active"' : '') !!}>
                                             <a href="{{ route('departments.index') }}">
                                                 {{ trans('general.departments') }}
                                             </a>
                                         </li>
                                     @endcan
 
+                                    {{-- Updated code --}}
                                     @can('view', \App\Models\Location::class)
-                                        <li {{!! (request()->is('locations') ? ' class="active"' : '') !!}}>
+                                        <li {!! (request()->is('locations') ? 'class="active"' : '') !!}>
                                             <a href="{{ route('locations.index') }}">
                                                 {{ trans('general.locations') }}
                                             </a>
                                         </li>
                                     @endcan
 
+                                    {{-- Updated code --}}
                                     @can('view', \App\Models\Company::class)
-                                        <li {{!! (request()->is('companies') ? ' class="active"' : '') !!}}>
+                                        <li {!! (request()->is('companies') ? 'class="active"' : '') !!}>
                                             <a href="{{ route('companies.index') }}">
                                                 {{ trans('general.companies') }}
                                             </a>
                                         </li>
                                     @endcan
 
+                                    {{-- Updated code --}}
                                     @can('view', \App\Models\Depreciation::class)
-                                        <li  {{!! (request()->is('depreciations') ? ' class="active"' : '') !!}}>
+                                        <li  {!! (request()->is('depreciations') ? 'class="active"' : '') !!}>
                                             <a href="{{ route('depreciations.index') }}">
                                                 {{ trans('general.depreciation') }}
                                             </a>
@@ -1604,41 +1642,42 @@
                                 </a>
 
                                 <ul class="treeview-menu">
-                                    <li {{!! (request()->is('reports/activity') ? ' class="active"' : '') !!}}>
+                                    {{-- in all li extra curlie is remove --}}
+                                    <li {!! (request()->is('reports/activity') ? 'class="active"' : '') !!}>
                                         <a href="{{ route('reports.activity') }}">
                                             {{ trans('general.activity_report') }}
                                         </a>
                                     </li>
-                                    <li {{!! (request()->is('reports/custom') ? ' class="active"' : '') !!}}>
+                                    <li {!! (request()->is('reports/custom') ? 'class="active"' : '') !!}>
                                         <a href="{{ url('reports/custom') }}">
                                             {{ trans('general.custom_report') }}
                                         </a>
                                     </li>
-                                    <li {{!! (request()->is('reports/audit') ? ' class="active"' : '') !!}}>
+                                    <li {!! (request()->is('reports/audit') ? 'class="active"' : '') !!}>
                                         <a href="{{ route('reports.audit') }}">
                                             {{ trans('general.audit_report') }}</a>
                                     </li>
-                                    <li {{!! (request()->is('reports/depreciation') ? ' class="active"' : '') !!}}>
+                                    <li {!! (request()->is('reports/depreciation') ? 'class="active"' : '') !!}>
                                         <a href="{{ url('reports/depreciation') }}">
                                             {{ trans('general.depreciation_report') }}
                                         </a>
                                     </li>
-                                    <li {{!! (request()->is('reports/licenses') ? ' class="active"' : '') !!}}>
+                                    <li {!! (request()->is('reports/licenses') ? 'class="active"' : '') !!}>
                                         <a href="{{ url('reports/licenses') }}">
                                             {{ trans('general.license_report') }}
                                         </a>
                                     </li>
-                                    <li {{!! (request()->is('ui.reports.maintenances') ? ' class="active"' : '') !!}}>
+                                    <li {!! (request()->is('ui.reports.maintenances') ? 'class="active"' : '') !!}>
                                         <a href="{{ route('ui.reports.maintenances') }}">
                                             {{ trans('general.asset_maintenance_report') }}
                                         </a>
                                     </li>
-                                    <li {{!! (request()->is('reports/unaccepted_assets') ? ' class="active"' : '') !!}}>
+                                    <li {!! (request()->is('reports/unaccepted_assets') ? 'class="active"' : '') !!}>
                                         <a href="{{ url('reports/unaccepted_assets') }}">
                                             {{ trans('general.unaccepted_asset_report') }}
                                         </a>
                                     </li>
-                                    <li  {{!! (request()->is('reports/accessories') ? ' class="active"' : '') !!}}>
+                                    <li  {!! (request()->is('reports/accessories') ? 'class="active"' : '') !!}>
                                         <a href="{{ url('reports/accessories') }}">
                                             {{ trans('general.accessory_report') }}
                                         </a>

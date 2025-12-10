@@ -17,14 +17,15 @@ class ModalController extends Controller
      * @author [A. Gianotto] [<snipe@snipe.net]
      * @return \Illuminate\Contracts\View\View
      */
-    public function show ($type, $itemId = null) {
+    public function show($type, $itemId = null)
+    {
 
         // These values should correspond to a file in resources/views/modals/
         $allowed_types = [
             'category',
-            'kit-model', 
-            'kit-license', 
-            'kit-consumable', 
+            'kit-model',
+            'kit-license',
+            'kit-consumable',
             'kit-accessory',
             'location',
             'manufacturer',
@@ -38,7 +39,7 @@ class ModalController extends Controller
 
 
         if (in_array($type, $allowed_types)) {
-        $view = view("modals.${type}");
+            $view = view("modals.$type");
 
             if ($type == "statuslabel") {
                 $view->with('statuslabel_types', Helper::statusTypeList());
@@ -50,7 +51,6 @@ class ModalController extends Controller
             return $view;
         }
 
-        abort(404,'Page not found');
-        
+        abort(404, 'Page not found');
     }
 }
